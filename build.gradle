@@ -19,10 +19,31 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+//tasks.jar.enabled = false
+
+bootJar {
+    archiveFileName = 'k8s.jar'
 }
+//jar {
+//    archiveFileName='k8s.jar'
+//
+////    def jars = configurations.runtimeClasspath.getFiles().collect{"lib/$it.name"}
+//
+//    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+//    manifest{
+//        attributes 'Main-Class': 'com/example/k8sdemo/K8sDemoApplication'
+////                    'Class-Path': jars.join(' ')
+//    }
+//
+//    from(configurations.runtimeClasspath.getFiles().collect{zipTree(it)})
+//
+//}
+
+//task copyAllDependencies(type: Copy) {
+//    from(configurations.runtimeClasspath.getFiles())
+//    into("$buildDir/libs/lib")
+//}
+//
+//jar.dependsOn copyAllDependencies
