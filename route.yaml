@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: deployment-backend-route
+spec:
+  host: my-test-app-com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: k8s-demo-two-apps

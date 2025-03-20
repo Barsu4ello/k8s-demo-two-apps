@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: k8s-demo-two-apps
 spec:
-  replicas: 5
+  replicas: 2
   template:
     metadata:
       labels:
@@ -31,4 +31,4 @@ spec:
     app: k8s-demo-two-apps
   ports:
     - port: 8080
-  type: LoadBalancer
+  type: ClusterIP
